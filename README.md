@@ -1,6 +1,6 @@
 # bun-svelte-spa
 
-A pure-frontend [Svelte 5](https://svelte.dev) single-page app bundled by [Bun](https://bun.com) via the official [`bun-plugin-svelte`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-svelte). No Vite.
+A pure-frontend [Svelte 5](https://svelte.dev) single-page app bundled by [Bun](https://bun.com), styled with [Tailwind CSS v4](https://tailwindcss.com). Uses the official [`bun-plugin-svelte`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-svelte) and [`bun-plugin-tailwind`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-tailwind). No Vite.
 
 ## Usage
 
@@ -16,7 +16,8 @@ bun run format   # prettier --write
 
 - `index.html` — entry point; loads `src/main.ts` as a module.
 - `src/main.ts` — mounts the Svelte app and wires up HMR.
+- `src/app.css` — Tailwind entry (`@import "tailwindcss";`).
 - `src/App.svelte` — root component.
 - `src/lib/` — components.
-- `bunfig.toml` — registers the Svelte plugin for the dev server.
-- `build.ts` — production build via `Bun.build` with the Svelte plugin.
+- `bunfig.toml` — registers the Svelte and Tailwind plugins for the dev server.
+- `build.ts` — production build via `Bun.build` with both plugins.

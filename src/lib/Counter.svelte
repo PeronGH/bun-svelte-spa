@@ -2,18 +2,9 @@
   let count = $state(0);
 </script>
 
-<button onclick={() => count++}>
+<button
+  onclick={() => count++}
+  class="cursor-pointer rounded-lg bg-orange-600 px-5 py-2.5 font-medium text-white transition-colors hover:bg-orange-700"
+>
   count is {count}
 </button>
-
-<style>
-  button {
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    border: 1px solid #ff3e00;
-    border-radius: 0.5rem;
-    background: #ff3e00;
-    color: white;
-    cursor: pointer;
-  }
-</style>
