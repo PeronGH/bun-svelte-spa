@@ -1,25 +1,27 @@
 # bun-svelte-spa
 
-A pure-frontend [Svelte 5](https://svelte.dev) single-page app bundled by [Bun](https://bun.com), styled with [Tailwind CSS v4](https://tailwindcss.com). Uses the official [`bun-plugin-svelte`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-svelte) and [`bun-plugin-tailwind`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-tailwind). No Vite.
+A pure-frontend [Svelte 5](https://svelte.dev) single-page app bundled by [Bun](https://bun.com) — no Vite, no server. Styled with [Tailwind CSS v4](https://tailwindcss.com) and type-checked with `svelte-check`. `bun run build` emits static files you can host anywhere.
+
+Built on the official [`bun-plugin-svelte`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-svelte) and [`bun-plugin-tailwind`](https://github.com/oven-sh/bun/tree/main/packages/bun-plugin-tailwind).
 
 ## Usage
 
 ```sh
-bun install      # install dependencies
-bun run dev      # start the dev server with HMR (http://localhost:3000)
-bun run build    # bundle to ./dist (static files for any host)
-bun run typecheck # svelte-check (type-checks .ts + .svelte)
-bun run lint     # eslint + prettier --check
-bun run format   # prettier --write
+bun install       # install dependencies
+bun run dev       # dev server with HMR at http://localhost:3000
+bun run build     # bundle to ./dist
+bun run typecheck # svelte-check (.ts + .svelte)
+bun run lint      # ESLint + Prettier check
+bun run format    # Prettier write
 ```
 
 ## Layout
 
-- `index.html` — entry point; loads `src/main.ts` as a module.
-- `src/main.ts` — mounts the Svelte app and wires up HMR.
-- `src/app.css` — Tailwind entry (`@import "tailwindcss";`).
-- `src/App.svelte` — root component.
-- `src/lib/` — components.
-- `static/` — assets referenced from `index.html` (bundled & content-hashed by Bun).
-- `bunfig.toml` — registers the Svelte and Tailwind plugins for the dev server.
-- `build.ts` — production build via `Bun.build` with both plugins.
+- `index.html` — entry; loads `src/main.ts` and `src/app.css`.
+- `src/main.ts` — mounts the app and wires HMR.
+- `src/app.css` — Tailwind entry.
+- `src/App.svelte` — root component; `src/lib/` — components.
+- `static/` — assets referenced from `index.html`.
+- `build.ts` — production build; `bunfig.toml` — dev-server plugins.
+
+Icons via [`@lucide/svelte`](https://lucide.dev) (UI) and [`@icons-pack/svelte-simple-icons`](https://simpleicons.org) (brand logos).
