@@ -42,5 +42,8 @@ Default to Bun, never Node/npm/pnpm/Vite:
 - **Tailwind**: style with utility classes in markup. Tailwind v4 auto-detects sources, so `.svelte`
   classes are picked up with no content config. Do **not** put Tailwind directives (`@apply`, `@tailwind`)
   inside Svelte `<style>` blocks — `bun-plugin-svelte` can't process them. Use `src/app.css` for global CSS.
+- **Code splitting**: the production build sets `splitting: true`, so `await import("./X.svelte")` becomes a
+  lazily-loaded chunk. Without it Bun inlines dynamic imports into one bundle. Use dynamic imports for
+  heavy or route-level components to keep the initial bundle small.
 - Browser-only code: tsconfig ships DOM libs. `@types/bun` covers `build.ts` and `import.meta.hot`.
 - Run `bun run lint` before committing; both ESLint and Prettier must pass.

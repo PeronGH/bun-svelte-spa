@@ -6,6 +6,7 @@ const result = await Bun.build({
   outdir: "./dist",
   target: "browser",
   minify: true,
+  splitting: true, // emit lazy chunks for dynamic import()
   plugins: [SveltePlugin({ development: false }), tailwind],
 });
 
