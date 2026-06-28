@@ -22,6 +22,7 @@ Default to Bun, never Node/npm/pnpm/Vite:
 
 - `bun run dev` — fullstack dev server with HMR at http://localhost:3000 (runs `bun index.html`).
 - `bun run build` — production bundle to `dist/` via `build.ts` (`Bun.build` + `SveltePlugin`).
+- `bun run typecheck` — `svelte-check` (strict; type-checks `.ts` and `.svelte`).
 - `bun run lint` — `eslint . && prettier --check .`
 - `bun run format` — `prettier --write .`
 

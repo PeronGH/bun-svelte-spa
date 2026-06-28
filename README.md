@@ -8,6 +8,7 @@ A pure-frontend [Svelte 5](https://svelte.dev) single-page app bundled by [Bun](
 bun install      # install dependencies
 bun run dev      # start the dev server with HMR (http://localhost:3000)
 bun run build    # bundle to ./dist (static files for any host)
+bun run typecheck # svelte-check (type-checks .ts + .svelte)
 bun run lint     # eslint + prettier --check
 bun run format   # prettier --write
 ```
