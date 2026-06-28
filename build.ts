@@ -15,4 +15,4 @@ if (!result.success) {
   process.exit(1);
 }
 
-console.log(`Built ${result.outputs.length} files to ./dist`);
+console.log("Built", result.outputs.length, "files to ./dist");
