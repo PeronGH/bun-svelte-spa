@@ -20,5 +20,6 @@ bun run format   # prettier --write
 - `src/app.css` — Tailwind entry (`@import "tailwindcss";`).
 - `src/App.svelte` — root component.
 - `src/lib/` — components.
+- `static/` — assets referenced from `index.html` (bundled & content-hashed by Bun).
 - `bunfig.toml` — registers the Svelte and Tailwind plugins for the dev server.
 - `build.ts` — production build via `Bun.build` with both plugins.

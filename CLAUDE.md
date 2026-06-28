@@ -32,6 +32,7 @@ Default to Bun, never Node/npm/pnpm/Vite:
 - `src/main.ts` — mounts the app with Svelte's `mount()` and wires `import.meta.hot` for HMR.
 - `src/app.css` — Tailwind entry (`@import "tailwindcss";`), linked from `index.html`.
 - `src/App.svelte` — root component. `src/lib/` — other components.
+- `static/` — static assets (e.g. `favicon.svg`) referenced from `index.html`.
 - `bunfig.toml` — registers both Bun plugins under `[serve.static]` for the dev server.
 - `build.ts` — production build (HTML entrypoint → `dist/`); registers both plugins.
 
@@ -46,5 +47,8 @@ Default to Bun, never Node/npm/pnpm/Vite:
 - **Code splitting**: the production build sets `splitting: true`, so `await import("./X.svelte")` becomes a
   lazily-loaded chunk. Without it Bun inlines dynamic imports into one bundle. Use dynamic imports for
   heavy or route-level components to keep the initial bundle small.
+- **Static assets**: reference them from `index.html` (`<link rel="icon" href="./static/favicon.svg">`) or
+  `import url from "./asset.svg"` in TS. Bun bundles, content-hashes, and rewrites the reference — in both
+  the dev server and `Bun.build`. There is no copy-as-is `public/` dir; every asset goes through the bundler.
 - Browser-only code: tsconfig ships DOM libs. `@types/bun` covers `build.ts` and `import.meta.hot`.
 - Run `bun run lint` before committing; both ESLint and Prettier must pass.
