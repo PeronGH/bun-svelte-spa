@@ -50,5 +50,8 @@ Default to Bun, never Node/npm/pnpm/Vite:
 - **Static assets**: reference them from `index.html` (`<link rel="icon" href="./static/favicon.svg">`) or
   `import url from "./asset.svg"` in TS. Bun bundles, content-hashes, and rewrites the reference — in both
   the dev server and `Bun.build`. There is no copy-as-is `public/` dir; every asset goes through the bundler.
+- **Icons**: `@lucide/svelte` — import icons by name (`import { Plus } from "@lucide/svelte"`) and size them
+  with Tailwind (`class="size-4"`). Tree-shaken (~400 B per icon after a one-time shared runtime). Avoid
+  Vite-only icon tooling like `unplugin-icons` — Bun's bundler isn't a supported target.
 - Browser-only code: tsconfig ships DOM libs. `@types/bun` covers `build.ts` and `import.meta.hot`.
 - Run `bun run lint` before committing; both ESLint and Prettier must pass.

@@ -28,5 +28,8 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@lucide/svelte": "^1.21.0"
   }
 }
